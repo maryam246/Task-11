@@ -244,3 +244,67 @@ v = [19,49,59,66,5]
 heapq.heapreplace(v,100)
 print(v)
 
+# Examples Collections.UserDict
+#1.
+from collections import UserDict
+class fun(UserDict):
+    def pop(self,s=None):
+        return False
+
+mydict = fun({'a':2,'b':4})
+mydict.pop('b')
+print(mydict)
+
+#2.
+from collections import UserDict
+class custurd(UserDict):
+    def pop(self,s=None):
+        return False
+d = custurd({'banana':2,'Cupcake':6})
+d.pop('banana')
+print(d)
+
+#3.
+from collections import UserDict
+userD =UserDict({1:'a',2:'b'})
+print(userD.data)
+
+#4.
+from collections import UserDict
+d = {'apple':200,"orange":300}
+user = UserDict(d)
+print(user)
+f = UserDict()
+print(f.data)
+
+#5.
+from collections import UserDict
+#Creating a dictionary where deletation is not allowed.
+class not_deleting(UserDict):
+    #Function to stop deletation is not allowed from dictionary
+    def __del__(self):
+        raise RuntimeError('Deletation is not allowed...')
+    #function to stop the pop from  dictionar
+    def pop(self,s=None):
+        raise RuntimeError('Deletation is not allowed...')
+    #function to stop the popitem from  dictionar
+    def popitem(self,s=None):
+        raise RuntimeError('Deletation is not allowed...')
+
+d = not_deleting({1:'a',2:'b',3:'c',4:'d'})
+print('Original Dictonary.')
+print(d)
+d.pop(1)
+print(d)
+
+#Examples of Collections.UserList
+from collections import UserList
+L = ['Ali',2.3,7,'BANANA']
+USE = UserList(L)
+print(USE.data)
+
+#2.
+from collections import UserList
+Li = [33,55,22,88,99,00]
+d = UserList(Li)
+print(d.data)
