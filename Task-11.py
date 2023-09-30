@@ -294,8 +294,8 @@ class not_deleting(UserDict):
 d = not_deleting({1:'a',2:'b',3:'c',4:'d'})
 print('Original Dictonary.')
 print(d)
-d.pop(1)
-print(d)
+# d.pop(1)
+# print(d)
 
 #Examples of Collections.UserList
 from collections import UserList
@@ -308,3 +308,83 @@ from collections import UserList
 Li = [33,55,22,88,99,00]
 d = UserList(Li)
 print(d.data)
+#3.
+from collections import UserList
+l_ist = [22.3,'Grapes',4]
+use = UserList(l_ist)
+print(use.data)
+
+#4.
+from collections import  UserList
+class MyList(UserList):
+
+    def remove(self,s = None):
+        raise RuntimeError('deletation is not allowed.')
+    def pop(self,s = None):
+        raise RuntimeError('deletation is not allowed.')
+l = MyList([1,2,3,4,5,6])
+result = UserList(l)
+print(l)
+l.append(7)
+#print(l)
+#l.remove()
+#5.
+from collections import UserList
+class food(UserList):
+    def remove(self, s= None):
+        raise RuntimeError('deletation is not allowed.')
+    def pop(self,s=None):
+        raise RuntimeError('deletation is not allowed')
+
+lis = food(['Burger','Sandwich','Patties'])
+u = UserList(lis)
+print(u)
+#lis.remove()
+#print(u)
+
+#Examples of collections.UserString
+#1.
+from  collections import UserString
+s = 1234
+us = UserString(s)
+print(us.data)
+
+us = UserString(' ')
+print(us.data)
+
+#2.
+from collections import UserString
+st = 'Hello world!'
+u = UserString(st)
+print(u.data)
+
+#3.
+from collections import UserString
+class MyString(UserString):
+    def append(self,s):
+        self.data += s
+
+    def remove(self,s):
+        self.data = self.data.replace(s,'')
+s = MyString("Marya")
+print("MY name is: ",s.data)
+
+s.append('m')
+print(s)
+s.remove('a')
+print(s)
+
+#4.
+class school(UserString):
+    def append(self,s):
+        self.data += s
+    def remove(self,s):
+        self.data =self.data.replace(s,'')
+stri = school('Student')
+print(stri)
+
+stri.remove('t')
+print(stri)
+
+stri.append('s')
+print(stri)
